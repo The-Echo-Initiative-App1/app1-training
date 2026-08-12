@@ -1,0 +1,19 @@
+@font-face{
+    font-family: Alkatra;
+    src: url("fonts/Alkatra.ttf");
+}
+
+@font-face{
+    font-family: Miltonian;
+    src: url("fonts/Miltonian.ttf");
+}
+h1{
+    font-family: Alkatra,verdana,arial;
+}
+p{
+    font-family:"Miltonian","lucida console", "courier new";
+    font-size : 1em;
+    font-weight : bold;
+    font-style : italic;
+}
+
