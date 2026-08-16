@@ -1,0 +1,19 @@
+*{
+     box-sizing: border-box;
+
+}
+.container{
+    background-color: rgb(225, 230, 230);
+    height:100vh;
+}
+.box{
+    background-color: aqua;
+    border:2px solid;
+    height:auto;
+    width:50%;
+    float:left;
+    padding:25px;
+    text-align: center;
+    min-height: 50%;
+    
+}
