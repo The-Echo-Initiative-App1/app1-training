@@ -1,0 +1,44 @@
+body{
+    margin:0px;
+    background-color:rgb(244, 220, 224);
+}
+header{
+    background-color: pink;
+    text-align: center;
+    padding: 25px;
+}
+.navbar{
+    background-color: rgb(235, 120, 139);
+    height:50px;
+}
+aside{
+    width:20%;
+    float:left;
+    padding:10px;
+}
+section{
+    width:40%;
+    float:left;
+    padding: 10px;
+    
+}
+article{
+    width:40%;
+    float:left;
+    padding: 10px;
+}
+*{
+    box-sizing: border-box;
+}
+footer{
+    display:block;
+    clear:both;
+    background-color: pink;
+    text-align: center;
+    padding: 25px;
+}
+@media screen and (max-width: 600px){
+    aside,section,article{
+        width:100px;
+    }
+}
