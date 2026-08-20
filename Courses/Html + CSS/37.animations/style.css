@@ -1,0 +1,58 @@
+#box{
+    width: 250px;
+    height:250px;
+    background-color: rgb(225, 129, 129);
+    font-size: 13em;
+    text-align: center;
+    animation-name: slideUp;
+    animation-duration: 2s;
+    animation-iteration-count: 1;
+    animation-direction: normal;
+    animation-play-state: running;
+    animation-timing-function: ease-in-out;
+}
+img{
+    animation-name: slideUp;
+    animation-duration: 2s;
+    animation-iteration-count: 1;
+    animation-direction: normal;
+    animation-play-state: running;
+    animation-timing-function: ease-in-out;
+}
+@keyframes slideLeft{
+    from{transform: translateX(300%);}
+}
+@keyframes slideRight{
+    to{transform: translateX(300%);}
+}
+
+@keyframes slideUp{
+    from{transform: translateY(300%);}
+}
+@keyframes slideDown{
+    to{transform: translateY(300%);}
+}
+@keyframes rotate{
+    25%{transform: rotateZ(140deg);}
+}
+@keyframes grow{
+    100%{transform: scale(2,2);}
+}
+@keyframes shrink{
+    50%{transform: scale(0.5,0.5);}
+}
+
+@keyframes fadeIn{
+    100%{opacity:1}
+}
+@keyframes colorchange{
+    0%{ background-color: rgb(225, 129, 129);}
+    20%{ background-color: rgb(72, 34, 34);}
+    40%{ background-color: rgb(180, 111, 27);}
+    60%{ background-color: rgb(170, 168, 36);}
+    80%{ background-color: rgb(47, 143, 74);}
+    100%{ background-color: rgb(21, 24, 123);}
+}
+@keyframes glow{
+    50%{box-shadow:0px 0px 50px yellow}
+}
