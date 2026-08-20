@@ -1,0 +1,100 @@
+.box1{
+    text-align: center;
+     justify-content: center;
+     align-items: center;
+     position: relative;
+     top:3%;
+     left:40%;
+     
+}
+body{
+    background-color: #7CB9E8;
+    
+}
+
+
+.navbar ul{
+    list-style-type:none ;
+    background-color:white;
+    padding:0px;
+    margin:0px;
+    overflow: hidden;
+    gap:130px;
+    box-shadow:2px 2px;
+}
+.navbar a{
+    background-color:white;
+    text-align: center;
+    color: black;
+    text-decoration: none;
+    padding:10px;
+    display: block;
+    
+}
+main h1{
+    position: relative;
+   
+    color: rgb(10, 38, 42);
+    text-shadow: 2px 2px;
+    text-shadow: #102f47;
+}
+main a{
+    margin-left: 5%;
+    text-shadow: #102f47;
+}
+
+.navbar li{
+    float: left;
+    
+}
+.navbar a:hover{
+    background-color: bisque;
+}
+.box2{
+    background-color: rgb(133, 111, 152);
+    height:100px;
+    width:250px;
+    text-align: center;
+    border-radius: 12px;
+    justify-content: center;
+    align-items: center;
+     box-shadow: 2px 3px 2px;
+     position: relative;
+     top:55%;
+     left:10%;
+}
+.box3{
+    background-color: rgb(94, 58, 97);
+     box-shadow: 2px 3px 2px;
+    height:160px;
+    width:250px;
+    text-align: center;
+    border-radius: 12px;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+     top:60%;
+     left:10%;
+}
+.button1{
+     text-align: center;
+     background-color: purple;
+     border-radius: 12px;
+     height:50px;
+     width:100px;
+     box-shadow: 2px 3px 2px;
+     top:50%;
+     left:5%;
+}
+.button2{
+    height:50px;
+     box-shadow: 2px 3px 2px;
+     width:100px;
+    text-align: center;
+     background-color: pink;
+     border-radius: 12px;
+     position: relative;
+     top:50%;
+     left:10%;
+     
+}
