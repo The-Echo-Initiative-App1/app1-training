@@ -1,14 +1,21 @@
 .box1{
-    text-align: center;
+     text-align: center;
      justify-content: center;
      align-items: center;
      position: relative;
-     top:3%;
-     left:40%;
+     margin:  0%;
+     background-color: #7CB9E8;
+     height: 30px;
+     padding: 10px;
+     
      
 }
 body{
     background-color: #7CB9E8;
+    background-image: url(7177680650994380.jpg);
+    background-position: center;
+    background-repeat: none;
+    background-attachment: fixed;
     
 }
 
@@ -45,10 +52,15 @@ main a{
 
 .navbar li{
     float: left;
-    
 }
 .navbar a:hover{
     background-color: bisque;
+}
+.button1:hover{
+      background-color:rgb(102, 3, 102);;
+}
+.button2:hover{
+    background-color: rgb(179, 123, 132);
 }
 .box2{
     background-color: rgb(133, 111, 152);
@@ -76,6 +88,10 @@ main a{
      top:60%;
      left:10%;
 }
+.container{
+    display: flex;
+    flex-direction: column;
+}
 .button1{
      text-align: center;
      background-color: purple;
@@ -85,7 +101,9 @@ main a{
      box-shadow: 2px 3px 2px;
      top:50%;
      left:5%;
+     
 }
+
 .button2{
     height:50px;
      box-shadow: 2px 3px 2px;
@@ -97,4 +115,12 @@ main a{
      top:50%;
      left:10%;
      
+}
+#box{
+    display: flex;
+}
+@media (max-width:786px){
+    #box{
+        flex-direction: column;
+    }
 }
