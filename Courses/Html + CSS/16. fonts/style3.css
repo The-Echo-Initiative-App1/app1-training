@@ -1,0 +1,13 @@
+@font-face{
+    src: url(fonts/Merriweather-Italic-VariableFont_opsz,wdth,wght.ttf);
+    font-family: Merriweather;
+}
+h1{
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+p{
+    font-family: Merriweather;
+    font-size: 18px;
+    font-weight: bold;
+    font-style: italic;
+}
