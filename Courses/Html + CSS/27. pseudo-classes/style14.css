@@ -1,0 +1,11 @@
+li:nth-child(3n+1){
+    background-color: aqua;
+}
+#greeting{
+    background-color: blue;
+    padding: 10px;
+    display: none;
+}
+#greeting:hover p{
+    display: block;
+}
