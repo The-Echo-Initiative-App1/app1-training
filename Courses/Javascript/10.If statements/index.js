@@ -10,7 +10,7 @@ mysubmit.onclick=function(){
     resultelement.textContent = `You are too old to enter this site`;
 }
     else if(age==0){
-    resultelement.textContent =`you can not enter.You were just born`
+    resultelement.textContent =`you can not enter.You were just born`;
 }
     else if(age<0){
     resultelement.textContent =`your age can not be below 0`;
