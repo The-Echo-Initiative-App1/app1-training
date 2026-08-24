@@ -1,0 +1,17 @@
+body{
+    margin: 0px;
+}
+.box{
+    border: 5px solid;
+    font-size: 5em;
+    height: 250px;
+    width: 250px;
+    margin: auto;
+}
+#box1{
+    background-color: blueviolet;
+
+}
+#box2{
+    background-color: aquamarine;
+}

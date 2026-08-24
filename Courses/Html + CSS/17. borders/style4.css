@@ -1,0 +1,11 @@
+h1{
+    border: 3px solid blueviolet;
+    border-radius: 5px; 
+}
+p{
+    border-bottom: 3px solid red;
+    border-top: 3px solid yellow;
+    border-left: 3px dotted orange;
+    border-right: 3px dotted greenyellow;
+    border-radius: 5px;
+}
