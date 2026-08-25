@@ -1,0 +1,25 @@
+h1::first-letter{
+    font-size: 2em;
+    font-style: italic;
+}
+p::first-line{
+    background-color: yellow;
+}
+p::selection{
+    color: rgb(22, 104, 36);
+    background-color: grey;
+}
+
+#apple::after{
+    content: "🍎";
+}
+#banana::after{
+    content: "🍌";
+}
+#orange::after{
+    content: "🍊";
+}
+#fruit li::marker{
+    content: "✔️";
+    color: rgb(73, 128, 0);
+}
