@@ -8,4 +8,4 @@ extrachars=extrachars.toLowerCase();
 username=letter+extrachars
 console.log(username);*/
 username=username.trim().charAt().toUpperCase()+username.trim().slice(1).toLowerCase();
-console.log(username)
+console.log(username);
