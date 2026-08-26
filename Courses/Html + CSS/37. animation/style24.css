@@ -1,0 +1,61 @@
+body{
+    background-color: black;
+}
+#box{
+    width: 250px;
+    height: 250px;
+    background-color: red;
+    font-size: 13em;
+    text-align: center;
+    animation-name: slideLeft;
+    animation-duration: 2s;
+    animation-iteration-count: 1;
+    animation-direction: normal;
+    animation-play-state: running;
+    animation-timing-function: cubic-bezier(0.28,-1.48,0.54,2.21);
+}
+img{
+    animation-name: slideLeft;
+    animation-duration: 2s;
+    animation-iteration-count: 1;
+    animation-direction: normal;
+    animation-play-state: running;
+    animation-timing-function: cubic-bezier(0.28,-1.48,0.54,2.21);
+}
+
+
+@keyframes slideLeft{
+    from{transform: translateX(300%);}
+}
+@keyframes slideRight {
+     to{transform: translateX(300%);}
+}
+@keyframes slideUp{
+     from{transform: translateY(300%);}
+}
+@keyframes slideDown{
+     to{transform: translateY(300%);}
+}
+@keyframes rotate{
+     25%{transform: rotateZ(360deg);}
+}
+@keyframes grow{
+     50%{transform: scale(2, 2);}
+}
+@keyframes shrink{
+     50%{transform: scale(0.5, 0.5);}
+}
+@keyframes fade{
+     100%{opacity: 1;}
+}
+@keyframes colorChange{
+    0%{background-color: hsl(0, 100%, 62%);}
+    20%{background-color: hsl(47, 81%, 62%);}
+    40%{background-color: hsl(78, 100%, 62%);}
+    60%{background-color: hsl(102, 100%, 62%);}
+    80%{background-color: hsl(187, 100%, 62%);}
+    100%{background-color: hsl(292, 87%, 24%);}
+}
+@keyframes glow{
+    50%{box-sizing: 0px 0px 50px yellow;}
+}
