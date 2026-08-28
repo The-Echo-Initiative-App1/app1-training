@@ -6,8 +6,8 @@
 //}
 let username;
 let password;
-let LoggedIn=false;
-while(!LoggedIn){
+let LoggedIn=true;
+do{
     username=window.prompt(`enter your username`);
     password=window.prompt(`enter your password`);
     if(username==="myusername" && password==="myPassword"){
@@ -18,4 +18,4 @@ while(!LoggedIn){
         console.log("invalid credentials try again")
     }
 
-}
+}while(!LoggedIn)
