@@ -4,4 +4,4 @@ function combineString(...strings){
 }
 
 const fullName=combineString("mr", "spongebob", "squarepants", "III");
-console.log(fullName)
+console.log(fullName);
