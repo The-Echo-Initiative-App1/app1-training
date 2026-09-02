@@ -1,0 +1,26 @@
+[
+ {
+    "name":"yasmine",
+    "age":16,
+    "isstudent":true
+ },
+ {
+    "name":"amina",
+    "age":22,
+    "isstudent":false
+   
+},
+{
+    "name":"hala",
+    "age":23,
+    "isstudent":false
+  
+},
+{
+     "name":"asmaa",
+     "age":20,
+    "isstudent":true
+  
+}
+ 
+ ]
