@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>My Task List</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="bg">
+    <h1>Task List</h1>
+    <input id="taskBar" placeholder="type a task">
+    <button onclick="addTask()" id="myButton">add Task</button>
+    <br><br>
+    <input id="searchBox" placeholder="search" oninput="showTasks()">
+    
+    <select id="filterBox" onchange="showTasks()">
+        <option value="all">All</option>
+        <option value="done">Done</option>
+        <option value="notDone">Not Done</option>
+    </select>
+    <ol id="myList"></ol>
+</div>
+    <script src="index.js"></script>
+</body>
+</html>

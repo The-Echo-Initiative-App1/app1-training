@@ -1,0 +1,60 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 30px;
+    background-color: hsl(0, 0%, 95%);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+
+}
+
+li {
+    margin-top: 10px;
+}
+
+/* Draws a line through completed tasks */
+.finished {
+    text-decoration: line-through;
+    color: gray;
+}
+
+button {
+    margin-left: 5px;
+}
+.bg{
+    background: lightblue;
+    padding: 50px;
+    box-shadow: 2px 2px 5px hsla(0, 0%, 0%, 0.525);
+    min-width: 300px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 10px;
+}
+input{
+    width: 300px;
+    height: 20px;
+}
+#filterBox, #myButton{
+    width: 100px;
+    padding: 10px 20px;
+    background-color: rgb(81, 182, 180);
+    color: white;
+    border: 2px solid rgb(254, 253, 253);
+    border-radius: 5px;
+    cursor: pointer;
+
+}
+#myList{
+    align-items: center;
+    font-weight: bold;
+    font-family:'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+li{
+    background:rgb(81, 182, 180);
+    width: 300px;
+    box-shadow: 2px 2px 5px hsla(0, 0%, 0%, 0.525);
+    border-radius: 10px;
+    color: aliceblue;
+    text-align: center;
+}
