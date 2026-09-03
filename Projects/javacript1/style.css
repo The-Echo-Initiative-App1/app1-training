@@ -1,0 +1,99 @@
+body{
+    background-color: rgb(247, 220, 224);
+    margin-left: 25px;
+}
+h1{
+    font-size: 3.5rem;
+    font-weight: bold;
+    font-family: 'Courier New', Courier, monospace;
+    
+}
+form{
+    text-align: center;
+    font-family: 'Courier New', Courier, monospace;
+    margin-top: 25px;
+}
+form button{
+    font-size: 1rem;
+    font-style: italic;
+    background-color: rgb(179, 84, 101);
+    color:white;
+    border: 10;
+    border-radius: 10px;
+    box-shadow: 1px 2px;
+    
+}
+form input{
+    font-size: 1rem;
+    min-width: 45%;
+    background-color: rgb(238, 227, 229);
+    border: 10;
+    border-radius: 10px;
+    box-shadow: 1px 2px;
+    text-align: center;
+    
+}
+#add{
+    background-color: rgb(84, 177, 203);
+    color: white;
+    font-size: 1.3rem;
+    border-radius: 15px;
+}
+#delete{
+    background-color: rgb(190, 31, 52);
+    color: white;
+    font-size: 1.3rem;
+    border-radius: 15px;
+}
+#edit{
+    background-color: rgb(199, 182, 208);
+    color: white;
+    font-size: 1.3rem;
+    border-radius: 15px;
+    border-radius: 15px;
+}
+#completed{
+     background-color: rgb(108, 206, 118);
+    color: white;
+    font-size: 1.3rem;
+    border-radius: 15px;
+    border-radius: 15px;
+
+}
+#save{
+    background-color: rgb(21, 12, 130);
+    color: white;
+    font-size: 1.3rem;
+    border-radius: 15px;
+    border-radius: 15px;
+    margin-bottom: 20px;
+    margin-left: 90%;
+    margin-bottom: 55%;
+
+}
+.buttons{
+    max-width: 130px;
+   
+    display: flex;
+    flex-direction: column;
+    column-gap: 10px;
+    position: relative;
+    top: 100px;
+
+}
+#newtaskinput{
+    width: 150px;
+    height: 30px;
+    font-family: 'Courier New', Courier, monospace;
+    color: black;
+    background-color: rgb(200, 182, 204);
+    border: none;
+    border-bottom: 2px;
+    box-shadow: 2px 2px;
+    margin-bottom: 20px;
+   
+}
+h4{
+    font-size: 1.5rem;
+    font-weight: bold;
+}
