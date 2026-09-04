@@ -1,7 +1,7 @@
 import MovieExplorer from "./MovieExplorer";
 function App() {
   return(
-  <MovieExplorer></MovieExplorer>
+     <MovieExplorer></MovieExplorer>
   )
  
 }

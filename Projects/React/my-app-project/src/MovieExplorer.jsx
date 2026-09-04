@@ -1,29 +1,43 @@
-//Project
-//Build a Movie Explorer.
-
 import React, { useState } from "react"
-
-//Requirements:
-
-//Multiple components
-//Props
-//State
-//Hooks
-//Search bar
-//Like/Favorite button
-//Movie cards
-//Fake movie data
 function MovieExplorer(){
-    const [newInput,setNewInput]=useState("");
-
+    const[newMovie,setNewMovie]=useState("");
+    const[Movies,setMovies]=useState([]);
     function handleInputChange(event){
-        setNewInput(event.target.value)
+        setNewMovie(event.target.value)
     }
+    function addMovie(){
+       if(newMovie.trim()!==""){
+          setMovies([...Movies,newMovie]);
+          setNewMovie("");
+       }
+    }
+    function favmovies(){
+        const updatedMovies=[...Movies];
+        updatedMovies[index]=updatedMovies[index] + "⭐";
+        setMovies(updatedMovies);
+
+    }
+    function likemovies(){
+        const updatedMovies=[...Movies];
+        updatedMovies[index]=updatedMovies[index] + "🩷";
+        setMovies(updatedMovies);
+
+    }
+
     return(<>
     <div>
-        <h1 className="novie-explorer">Movie Explorer</h1>
-        <input className="search-bar" placeholder="Find a movie"  value={newInput} onChange={handleInputChange}/>
+        <h1 className="movie-explorer">Movie Explorer</h1>
+        <input className="search-bar" placeholder="Find a movie"  value={newMovie} onChange={handleInputChange}/>
+            <button className="addButton" onClick={addMovie}>Find</button>
+               {Movies.map((movie) => (
+                <p>{movie}</p>
+            ))}
+        <button className="favButton" onClick={favmovies} >add to favorite movies list</button> 
+        <button className="likeButton" onClick={likemovies} >I like this movie</button>    
     </div>
+   
+   
+   
     </>)
 }
 export default MovieExplorer
