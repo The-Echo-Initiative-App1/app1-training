@@ -4,25 +4,29 @@ import {
   StyleSheet,
   TextInput,
   ActivityIndicator,
+  Button,
 } from "react-native";
 
 import { Link, useRouter } from "expo-router";
-import { Host,Button} from '@expo/ui/jetpack-compose'
+
 
 
 export default function Index() {
   const router=useRouter();
   return (
-    <View style={styles.container}>
+     
+      <View style={styles.container}>
       <Text style={styles.helloWorldtitle }>Hello People</Text>
+
      
       <TextInput placeholder="Email"/>
       <ActivityIndicator size={"large"}/>
       <Link href={"/about"}>Go To About Screen</Link>
-      <Host><Button onPress={()=> router.push("/about")}>
-        <Text>Navigate</Text>
-         </Button></Host>
+      <Button title="Navigate" onPress={()=> router.push("/about")}>
+      </Button>
+        
     </View>
+    
   );
 }
 
