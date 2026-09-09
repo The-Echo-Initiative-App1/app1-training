@@ -8,7 +8,12 @@
     "scheme": "bereaclone",
     "userInterfaceStyle": "automatic",
     "ios": {
-      "icon": "./assets/expo.icon"
+      "icon": "./assets/expo.icon",
+      "infoPlist" :{
+        "NSPhotoLibraryUsageDescription": "Allow this app to access your photos so you can choose a profile picture.",
+        "NSCameraUsageDescription": "Allow this app to access your camera so you can take a profile picture."
+        
+      }
     },
     "android": {
       "adaptiveIcon": {
@@ -18,7 +23,9 @@
         "monochromeImage": "./assets/images/android-icon-monochrome.png"
       },
       "predictiveBackGestureEnabled": false,
-      "package": "com.anonymous.bereaclone"
+      "package": "com.anonymous.bereaclone",
+      "permissions":["CAMERA","READ_MEDIA_IMAGES"]
+
     },
     "web": {
       "output": "static",

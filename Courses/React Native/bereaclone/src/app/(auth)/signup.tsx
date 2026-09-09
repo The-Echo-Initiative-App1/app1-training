@@ -21,12 +21,12 @@ export default function SignUpScreen(){
   const handleSignUp=async()=>{
     if(!email||!password){
       Alert.alert("Error ,please fill in all fields");
-      return;
+      
     }
     
     if(password.length<3){
       Alert.alert("Error ,password must be at least 3 characters");
-      return;
+     
     }setIsLoading(true)
     try{
       await signUp(email,password);
@@ -89,7 +89,7 @@ export default function SignUpScreen(){
     </View>
     </SafeAreaView>)
 }
-const styles = StyleSheet.create({
+export const styles = StyleSheet.create({
   container: {
     flex: 1,
    
