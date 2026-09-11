@@ -13,7 +13,8 @@ export default function SignUpScreen(){
      const[username,setUsername]=useState("");
      const[isLoading,setIsLoading]=useState(false); 
      const[ProfileImage,setProfileimage]=useState<string|null>(null)
-    const { user } = useAuth();
+    const { user,uploadUser } = useAuth();
+    const router=useRouter();
      const pickImage=async()=>{
      
       const {status}=await ImagePicker.requestMediaLibraryPermissionsAsync();
@@ -109,6 +110,14 @@ export default function SignUpScreen(){
       );
     }
   }
+  //updateProfile
+  await uploadUser({
+    name,
+    username,
+    profileImage:ProfileImageUrl,
+    onboardingCompleted:true,
+  });
+  router.replace("/(tabs)")
   } catch (error) {
     Alert.alert(
       "Error",

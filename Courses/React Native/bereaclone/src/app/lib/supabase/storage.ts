@@ -16,7 +16,9 @@ export const uploadProfileImage= async(userId:string,imageUri:string)=>{
             throw error;
         }
         
-        const{data:urlData}=supabase.storage.from("profiles").getPublicUrl(fileName);
+        const{data:urlData}=supabase.storage
+        .from("profiles")
+        .getPublicUrl(fileName);
         return urlData.publicUrl
     }catch(error){
         console.error(`Error uploading profile image`,error);

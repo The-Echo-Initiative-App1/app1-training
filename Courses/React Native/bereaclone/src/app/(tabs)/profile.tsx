@@ -1,10 +1,9 @@
-import { Text, View, StyleSheet, TextInput, ActivityIndicator,Platform } from "react-native";
+import { Text, View, StyleSheet, TextInput, ActivityIndicator} from "react-native";
 import { Image } from "expo-image";
 import { Button, Host, Column } from "@expo/ui/jetpack-compose";
 import { BottomSheet } from "@expo/ui";
 import { useState } from "react";
 import { Color } from "expo-router";
-
 
 export default function Profile() {
   const [isOpened, setIsOpened] = useState(false);
@@ -13,8 +12,9 @@ export default function Profile() {
 
   return (
     <View style={styles.container}>
-
       <Text>Profile Screen</Text>
+     
+
     </View>
   );
 }
