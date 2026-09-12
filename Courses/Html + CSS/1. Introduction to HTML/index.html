@@ -1,10 +1,20 @@
 <!DOCTYPE html
-<html>
+<html lang="en">
     <head>
      <title>My first Website</title>
      <link rel="icon" type="image/png" href="Untitled design.png">
     </head>
-     <body>
+    <header style="background-color: rgb(242, 242, 6);">
+        <h1>Welcome to My first website about cutie cats because they are so cute!</h1>
+     <a href=""Home.html" target="_blank" title="Click me to go to Home page!">
+        <button style="font-size: 30px; background-color: #4c61c0; color: white; padding: 10px 20px; border: none; cursor: pointer; border-radius:10px">Home</button></a>
+     <a href=""About Us" target="_blank" title="Click me to go to About Us page!">
+        <button style="font-size: 30px; background-color: #4c61c0; color: white; padding: 10px 20px; border: none; cursor: pointer; border-radius:10px">About Us</button></a> 
+     <hr>
+    </header>
+     
+    <maintag>
+    <body>
         <h1>this is an h1 heading :3</h1>
         <hr>
         <h2>This is an h2 heading</h2>
@@ -144,7 +154,51 @@
     function doSOmething(){ document.getElementById("Hey John!").innerHTML = "I am doing good, how about you?";
     }
  </script>
+ <form action="index.php" method="POST" enctype="multipart/form-data">
+     <label for="name">Name:</label>
+     <input type="text" id="name" name="name">
+     <br>
+     <label for="email">Email:</label>
+     <input type="email" id="email" placeholder="john.doe@example.com" name="email" required>
+     <br>
+     <label for="password">Password:</label>
+     <input type="password" id="password" name="password" required>
+     <br>
+     <label for="birthdate">Birth Date:</label>
+     <input type="date" id="birthdate" name="birthdate">
+     <br>
+     <label for="title">Title:</label>
+     <select id="title" name="title">
+         <option value="mr">Mr.</option>
+         <option value="mrs">Mrs.</option>
+         <option value="ms">Ms.</option>
+     </select>
+     <br>
+     <label for="Payment">Payment Method:</label>
+     <select>
+         <option value="creditcard">Credit Card</option>
+         <option value="paypal">PayPal</option>
+         <option value="banktransfer">Bank Transfer</option>
+     </select>
+     <br>
+     <label for="Subscribe">Subscribe to Newsletter:</label>
+     <input type="checkbox" id="Subscribe" name="subscribe" value="yes">
+     <br>
+     <label for="comment">Comments</label>
+     <textarea id="comment" name="comment" rows="4" cols="50"></textarea>
+     <br>
+     <label for="file">file</label>
+     <input type="file" id="file" name="file" accept="pdf">
+     <br>
+     <input type="reset">
+     <input type="submit" value="Submit">
+ </form>
+</maintag>
+ <footer style="background-color: burlywood;">
+    <h1>Do you like Cats now? Meow Meow!</h1>
+    <h2>Author: Jane Doe</h2>
+</footer>
     </body>
 
-
+    
 </html>

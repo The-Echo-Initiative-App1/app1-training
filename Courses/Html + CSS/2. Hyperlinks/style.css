@@ -1,0 +1,28 @@
+@font-face {
+    font-family: 'Playfair Display';
+    src: url('../Fonts/Playfair.ttf'); 
+}
+
+
+}
+
+h1{
+    border-style:ridge;
+    border-width: 4px;
+    font-family:Playfair Display, 'Times New Roman', Times, serif;
+    font-size: 50px;
+}
+p{
+    border-bottom: 3px solid pink;
+    border-top: 3px solid pink;
+    border-left: 3px solid pink;
+    border-right: 3px solid pink;
+    border-radius: 10px;
+
+    font-family: 'Playfair Display', 'Times New Roman', Times, serif;
+    font-size: 39px;
+    font-weight: bold;
+    font-style: italic;
+}
+
+body { background-color: red !important; }
