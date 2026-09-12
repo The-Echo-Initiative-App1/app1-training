@@ -3,14 +3,49 @@
     src: url('../Fonts/Playfair.ttf'); 
 }
 
-
+h1{
+    text-shadow: 1px 2px;
 }
-
 h1{
     border-style:ridge;
     border-width: 4px;
     font-family:Playfair Display, 'Times New Roman', Times, serif;
     font-size: 50px;
+}
+#box1{
+    border: 3px solid pink;
+    border-radius: 10px;
+    background-color: lightblue;
+    padding: 20px;
+    margin: 20px;
+}
+body{
+    margin: 0px;
+    background-color: lightblue;
+}
+.box{
+    border: 3px solid pink;
+    border-radius: 10px;
+    background-color: lightblue;
+    font-size: 5em;
+    margin: 50px auto;
+}
+#box2{
+    border: 3px solid pink;
+    border-radius: 10px;
+    background-color: lightblue;
+    padding: 20px;
+    height: 200px;
+    width: 200px;
+    position: relative;
+    top: -100p;
+    left: 100px;
+}
+#box3{
+    border: 3px solid pink;
+    border-radius: 10px;
+    background-color: lightblue;
+    padding: 20px;
 }
 p{
     border-bottom: 3px solid pink;
@@ -24,5 +59,45 @@ p{
     font-weight: bold;
     font-style: italic;
 }
-
-body { background-color: red !important; }
+body{
+    border: 3px solid pink;
+    border-radius: 10px;
+    diplay: flow-root
+}
+#image1{
+    float: left;
+    margin-right: 10px;
+}
+#image2{
+    float: right;
+    margin-left: 10px;
+}
+div{
+    background-color: lightblue;
+    height:auto;
+    width:auto;
+    display: inline;
+}
+span{
+    background-colour: rgb(153, 223, 179);
+    display: in-lineblock;
+    height: auto;
+    width:auto;
+}
+.box{
+    border: 2x solid pink;
+    height: auto;
+    padding:25px;
+    width: 50%;
+    float: left;
+    box-sizing:border-box;
+    text-align: center;
+    min-width: 50%;
+}
+.container{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    background-color: rgb(109, 80, 224);
+    height: 100vh;
+}
