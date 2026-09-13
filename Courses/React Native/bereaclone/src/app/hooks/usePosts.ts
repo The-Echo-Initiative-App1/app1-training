@@ -29,54 +29,102 @@ export const usePosts=()=>{
         loadPost()
 
     },[])
-    const loadPost=async ()=>{
-        if(!user) return
-        setIsLoading(true)
-        try{
-           await supabase.from("posts")
-           .select("*").eq("is_active",true)
-           .gt("expires_at",new Date().toISOString())
-        }
-        catch(error){
-            console.error("Error in loadPosts:" ,error)
+    const loadPost = async () => {
+  if (!user) return;
 
-        }finally{
-            setIsLoading(false)
-        }
+  setIsLoading(true);
 
+  try {
+    const { error: deactivateError } = await supabase
+      .from("posts")
+      .update({ is_active: false })
+      .eq("user_id", user.id)
+      .eq("is_active", true);
+
+    if (deactivateError) {
+      console.error("Error deactivating old posts:", deactivateError);
     }
-    const  createPost=async (imageUri:string, description?:string)=>{
-        if(!user){
-            throw new Error("User not authenticated");
 
-        }
-        try{
+    const { data: postsData, error: postsError } = await supabase
+      .from("posts")
+      .select(`
+        *,
+        profiles(
+          id,
+          name,
+          username,
+          profile_image_url
+        )
+      `)
+      .eq("is_active", true)
+      .gt("expires_at", new Date().toISOString())
+      .order("created_at", { ascending: false });
 
-            const imageUrl=await uploadPostImage(user.id,imageUri);
-            const now=new Date();
-            const expiresAt= new Date(now.getTime()+24*60*60*1000);
-            
-            const {error}=await supabase.from("posts").insert({
-                user_id:user.id,
-                image_url:imageUrl,
-                description:description|| null,
-                expires_at:expiresAt.toISOString(),
-                is_active:true,
-                
-            })
-            .select()
-            .single();
-            if(error){
-                console.error("Error creating post:",error);
-                throw error
-            }
-        }
-        catch(error){
-            console.error("Error in createPost",error);
-            throw error;
+    if (postsError) {
+      console.error("Error loading posts:", postsError);
+      throw postsError;
+    }
 
-        }
-    };
+    if (!postsData || postsData.length === 0) {
+      setPosts([]);
+      return;
+    }
 
-    return{createPost}
+    const postsWithProfiles = postsData.map((post) => ({
+      ...post,
+      profiles: post.profiles || null,
+    }));
+
+    setPosts(postsWithProfiles);
+  } catch (error) {
+    console.error("Error in loadPost:", error);
+  } finally {
+    setIsLoading(false);
+  }
+};
+const createPost = async (
+  imageUri: string,
+  description?: string
+) => {
+  if (!user) {
+    throw new Error("User not authenticated");
+  }
+
+  try {
+    const imageUrl = await uploadPostImage(
+      user.id,
+      imageUri
+    );
+
+    const now = new Date();
+
+    const expiresAt = new Date(
+      now.getTime() + 24 * 60 * 60 * 1000
+    );
+
+    const { error } = await supabase
+      .from("posts")
+      .insert({
+        user_id: user.id,
+        image_url: imageUrl,
+        description: description || null,
+        expires_at: expiresAt.toISOString(),
+        is_active: true,
+      });
+
+    if (error) {
+      console.error("Error creating post:", error);
+      throw error;
+    }
+
+
+    await loadPost();
+
+  } catch (error) {
+    console.error("Error in createPost:", error);
+    throw error;
+  }
+};
+
+    return{createPost,posts};
 }
