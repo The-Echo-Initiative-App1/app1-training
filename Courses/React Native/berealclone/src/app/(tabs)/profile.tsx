@@ -2,6 +2,7 @@ import { Text, View, StyleSheet, TextInput, ActivityIndicator } from "react-nati
 import { Image} from "expo-image";
 import {Button,Host, Column, ModalBottomSheet, } from '@expo/ui/jetpack-compose'
 import {useState} from "react";
+import { Platform } from "react-native";
 export default function Profile() {
   const [isOpened, setisOpened]=useState(false)
     const [color,setColor]=useState("#3276b1")
@@ -10,19 +11,7 @@ export default function Profile() {
       <Text style={styles.helloWorldTitle}>hello world</Text>
       <Text>profile screen</Text>
 
-      <Host>
-        <Button onClick={() => setisOpened(true)}><Text>Open Bottom Sheet</Text></Button>
-        <ColorPicker/>
-        <Column>
-          
-          <ModalBottomSheet isOpened={isOpened} onIsOpenedChange={setisOpened}>
-            <Text>hello everyone</Text>
-            <View style={{height:500}}>
-              <Text>hello</Text>
-            </View>
-          </ModalBottomSheet>
-        </Column>
-      </Host>
+  
     </View>
   );
 }
