@@ -116,7 +116,7 @@ const createPost = async (
       console.error("Error creating post:", error);
       throw error;
     }
-
+    
 
     await loadPost();
 
@@ -125,6 +125,8 @@ const createPost = async (
     throw error;
   }
 };
-
-    return{createPost,posts};
+const refreshPosts=async()=>{
+  await loadPost();
+}
+    return{createPost,posts,refreshPosts};
 }

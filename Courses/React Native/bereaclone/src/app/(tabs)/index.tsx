@@ -7,6 +7,8 @@ import {
   TextInput,
   Modal,
   FlatList,
+  RefreshControl,
+  ActivityIndicator,
 } from "react-native";
 import { Post } from "../hooks/usePosts";
 import {  useRouter } from "expo-router";
@@ -31,7 +33,8 @@ const PostCard=({Post,currentUserId}:PostCardProps) => {
       <View style={styles.postContainer}>
           <View style={styles.postHeader}>
             <View style={styles.userInfo}>
-                 {postUser?.profile_image_url?(<Image source={{uri:postUser.profile_image_url}}
+                 {postUser?.profile_image_url?(<Image  cachePolicy={"none"}
+                  source={{uri:postUser.profile_image_url}}
                   style={styles.avatar}/>):(
                     <View style={[styles.avatar,styles.avatarPlaceholder]}>
                       <Text style={styles.avatarText}>
@@ -51,7 +54,8 @@ const PostCard=({Post,currentUserId}:PostCardProps) => {
               </Text>
             </View>
       </View>
-      <Image source={{uri:Post.image_url}}
+      <Image  cachePolicy={"none"}
+       source={{uri:Post.image_url}}
       style={styles.postImage}
       contentFit="cover"/>
 
@@ -71,17 +75,34 @@ export default function Index() {
   const [previewImage,setpreviewImage]=useState<string| null>(null);
   const [description,setDescription]=useState<string>("");
   const [isUploading,setIsUploading]=useState(false);
+  const [refreshing,setRefreshing]=useState(false);
   
   const router=useRouter();
 
   
   
-  const {createPost,posts}=usePosts();
+  const {createPost,posts,refreshPosts}=usePosts();
   const {user}=useAuth();
   //check if user had an active post
   const userAvtivePost=posts.find((post)=>post.user_id===user?.id && post.is_active &&
    new Date(post.expires_at)>new Date());
-  const hasActivePost=!!userAvtivePost;
+ 
+   const hasActivePost=!!userAvtivePost;
+   const onRefresh=async()=>{
+     setRefreshing(true);
+     try{
+       await refreshPosts
+
+     }
+    catch(error){
+       console.error("Error refreshing posts",error)
+  
+     }
+     finally{ setRefreshing(false);
+ 
+    }
+
+   }
 
 
   const pickImage=async()=>{
@@ -161,7 +182,14 @@ export default function Index() {
 );
   return (
   <SafeAreaView style={styles.container} edges={["bottom","top"]}>
-            <FlatList data={posts} renderItem={renderPost}/>
+            <FlatList data={posts} renderItem={renderPost} keyExtractor={(item) => item.id}
+              contentContainerStyle={
+                posts.length==0?styles.emptyContent:styles.content
+
+              } 
+              ListEmptyComponent={<Text>No post found</Text>}
+              refreshControl={<RefreshControl refreshing={refreshing} onRefresh={onRefresh}/>}/>
+
               
            
       <TouchableOpacity style={styles.fab} onPress={showImagePicker}>
@@ -172,7 +200,9 @@ export default function Index() {
            <View style={styles.modalContainer}>
             <View style={styles.modalContent}>
               <Text style={styles.modalTitle}>{hasActivePost? "Replace Your Post":"Preview Your Post"}</Text>
-              {previewImage && ( <Image source={{uri:previewImage}} style={styles.previewImage}
+              {previewImage && ( <Image  
+               cachePolicy={"none"}
+              source={{uri:previewImage}} style={styles.previewImage}
                       contentFit="cover"></Image>
             )}
 
@@ -193,10 +223,14 @@ export default function Index() {
               }}>
                 <Text style={styles.cancelButtonText}>Cancel</Text>
                 </TouchableOpacity>
-              <TouchableOpacity style={[styles.modalButton,styles.postButton]} onPress={handlePost}>
-                <Text style={styles.postButtonText} >{hasActivePost ?"Replace":"Post"}</Text>
+              <TouchableOpacity style={[styles.modalButton,styles.postButton]} onPress={handlePost} disabled={isUploading}>
+               {isUploading?(
+                <ActivityIndicator size={24} color="#fff"></ActivityIndicator>
+
+               ):(<Text style={styles.postButtonText} >{hasActivePost ?"Replace":"Post"}</Text>)}
                 </TouchableOpacity>
              </View>
+
 
             
             </View>
@@ -381,4 +415,15 @@ postInfo:{
   fontSize:14,
   color:'#666'
 },
+emptyContent:{
+  flex:1,
+  justifyContent:"center",
+  alignItems:"center",
+  padding:16,
+
+},
+content:{
+  padding:16,
+  paddingBottom:100,
+}
 })

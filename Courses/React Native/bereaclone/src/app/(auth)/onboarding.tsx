@@ -138,7 +138,8 @@ export default function SignUpScreen(){
         <View style={styles.form}>
             <TouchableOpacity style={styles.imageContainer} onPress={showImagePicker}>
               {ProfileImage ?(<Image source={{uri:ProfileImage}}
-                                     style={styles.profileImage}/>
+                                     style={styles.profileImage}
+                                     />
                                     )
               :(
                 <View style={styles.placeholderImage}>

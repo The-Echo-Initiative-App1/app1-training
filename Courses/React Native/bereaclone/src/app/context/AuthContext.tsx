@@ -10,20 +10,28 @@ export interface User{
 }
 interface AuthContextType{
     user:User|null;
+    isLoading:boolean;
     signUp:(email:string,password:string)=>Promise<void>;
     uploadUser: (userData: Partial<User>) => Promise<void>;
     signIn:(email:string,password:string)=>Promise<void>;
-
+    signOut:()=>Promise<void>;
 }
 
 const AuthContext=createContext<AuthContextType | undefined>(undefined);
 export const AuthProvider =({children}: {children:ReactNode})=>{
     const[user,setUser]=useState<User|null>(null);
+    const[isLoading,setIsLoading]=useState(true);
 
     useEffect(()=>{
         checkSession();                       
     })
-    const checkSession=async()=>{
+    const signOut=async()=>{
+        await supabase.auth.signOut();
+        setUser(null);
+
+    }
+    const checkSession=async( )=>{
+        setIsLoading(true);
         try{
             const {data:{session},}=
             await supabase.auth.getSession()
@@ -37,7 +45,11 @@ export const AuthProvider =({children}: {children:ReactNode})=>{
             }
         }
         catch(error){
+            console.error("Error checking sessions:",error)
 
+        }
+        finally{
+            setIsLoading(false);
         }
     }
     
@@ -86,7 +98,7 @@ export const AuthProvider =({children}: {children:ReactNode})=>{
         if (error) throw error;
         if(data.user){
            const profile=await fetchUserProfile(data.user.id);
-           setUser(profile)
+           setUser(profile);
         }
 
     }
@@ -116,8 +128,14 @@ export const AuthProvider =({children}: {children:ReactNode})=>{
     if (userData.onboardingCompleted !== undefined) 
         updateData.onboarding_completed = userData.onboardingCompleted;
     
-    const {error}= await supabase.from("profiles").update(updateData).eq("id",user.id);
+    const {error ,data}= await supabase.from("profiles")
+    .update(updateData)
+    .eq("id",user.id)
+    .select().single();
       if (error) throw error;
+     if(data){
+      const profile=await fetchUserProfile(data.id);
+        setUser(profile)}
 }
     catch(error){
         console.error("Error updating user:",error)
@@ -126,7 +144,7 @@ export const AuthProvider =({children}: {children:ReactNode})=>{
         
     };
     return (
-  <AuthContext.Provider value={{ user, signUp, uploadUser,signIn}}>
+  <AuthContext.Provider value={{ user, signUp, uploadUser,signIn,signOut,isLoading}}>
     {children}
   </AuthContext.Provider>
 );
