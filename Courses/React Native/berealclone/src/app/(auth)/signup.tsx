@@ -3,6 +3,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import {useRouter} from "expo-router"
 import { useAuth } from "../../context/AuthContext";
 import { useEffect, useState, } from "react";
+import { supabase } from "@/lib/supabase/client";
 
 export default function SignUpScreen(){
     const [email, setEmail]=useState('');

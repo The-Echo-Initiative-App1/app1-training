@@ -16,9 +16,11 @@
         "foregroundImage": "./assets/images/android-icon-foreground.png",
         "backgroundImage": "./assets/images/android-icon-background.png",
         "monochromeImage": "./assets/images/android-icon-monochrome.png"
+        
       },
       "predictiveBackGestureEnabled": false,
-      "package": "com.anonymous.berealclone"
+      "package": "com.anonymous.berealclone",
+      "permissions":["CAMERA","READ_MEDIA_IMAGES"]
     },
     "web": {
       "output": "static",
