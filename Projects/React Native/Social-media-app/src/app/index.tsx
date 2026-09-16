@@ -1,9 +1,10 @@
 import { StyleSheet,View,Text } from "react-native";
 import { useEffect } from "react";
-import { useRouter } from "expo-router";
+import { Stack, useRouter } from "expo-router";
 
 
 export default function Index() {
+  
   const router=useRouter();
   useEffect(()=>{
     const timer=setTimeout(()=>{
@@ -24,18 +25,17 @@ export default function Index() {
 
 const styles=StyleSheet.create({
 container:{
-  backgroundColor: "#0000FF",
-  flex:1,
+  backgroundColor: "#5684AE",
+  flex: 1,
   alignItems: "center",
   justifyContent: "center",
 
 },
 Title:{
-  fontSize:30,
-  flex:1,
-  fontStyle:"italic",
-  fontWeight:"bold",
-  
+  fontSize: 30,
+  fontStyle: "italic",
+  fontWeight: "bold",
+  textAlign: "center",
 },
 
 
