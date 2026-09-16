@@ -1,69 +1,76 @@
-const decreasebtn = document.getElementById("decreasebtn");
-const resetbtn = document.getElementById("resetbtn");
-const increasebtn = document.getElementById("increasebtn");
-const countLabel = document.getElementById("countLabel");
-let count = 0;
-increasebtn.onclick = function(){
-    count++;
-    countLabel.textContent = count;
-}
-decreasebtn.onclick = function(){
-    count--;
-    countLabel.textContent = count;
-}
-resetbtnbtn.onclick = function(){
-    count = 0;
-    countLabel.textContent = count;
-}
-
-Math.PI
-console.log(Math.PI);
-console.log(E);
-let x = 3.21;
-let z;
-const min = 50;
-const max = 100;
-let random = Math.floor(Math.random() * 6) + 1;
-console.log(randomNum);
-
-let age = 25;
-if(age >=18){
-    console.log("You are old enough to enter this site");
+let username = "";
+if(username === ""){
+    console.log('You didnt enter your name');
 }
 else{
-    console.log("You must be 18+ to enter this site");
+    console.log('Hello ${username}');
 }
-let isStudent = false;
-if(isStudent){
-    console.log("You are a student!");
+for(let i = 0; i <= 2 i+= 2){
+    console.log("Hello");
+    console.log("i");
 }
-else{
-    console.log("You are NOT a student");
-}
-let age = 23;
-let message = age>= ? "You are an adult" : "You are a minor";
-console.log(message);
+const minNum = 1;
+const maxNum = 100;
+const answer = Math.floor(Math.random() * (maxNum - minNum +1));
+console.log(answer);
 
-let time = 16;
-let greeting = time < 12 ? "Good Morning!": "Good Afternoon!";
-console.log(greeting);
+let attempts = 0;
+let guess;
+let running= true;
 
-let username = window.prompt("Enter your username");
-username = username.trim():
-let letter = username.charAt(0);
-letter = letter.toUpperCase();
-let extraChars = username.slice(1);
-extraChars = extraChars.toLowerCase();
-username = letter + extraChars;
+while(running){
+    guess = window.prompt('Guess a number between ${minNum} - ${maxNum}');
+    console.log(typeof guess, guess);
+    guess = Number(guess);
+    running = false;
+}
 
-console.log(username);
-const temp = 20;
-if(temp > 0){
-    console.log("Thea weather is GREAT");
+function happybirthday(){
+    console.log("Happy Birthday to you!")
+    console.log("Happy Birthday to you!")
+    console.log("Happy Birthday dear ${username}!")
+    console.log("You are ${age} years old!")
 }
-else if(temp <=30){
-    console.log("The weather is GOOD");
+happybirthday();
+happybirthday();
+happybirthday();
+happybirthday();
+
+
+function function1(){
+    let x = 24;
+    console.log(x);
 }
-else(
-    console.log("The weather is BAD");
-)
+function function2(){
+    let x =12;
+    console.log(x);
+}
+let fruits = ["apple", "orange", "banana"];
+fruits[0] = "coconut";
+console.log(fruits[0]);
+console.log(fruits[1);
+console.log(fruits[2]);
+
+let number = [1, 2, 3, 4, 5];
+let maximum = Math.max(...number);
+let minimum = Math.min(...number);
+console.log(maximum);
+
+function openFridge(...foods){
+    console.log(...foods);
+}
+const food1 = "pizza";
+ const food2 = "Burgers";
+ const food3 = "Sushi";
+ const food4 = "Hotdog";
+
+ openFridge(food1, food2, food3, food4);
+ hello(goodbye);
+
+ function hello(callback){
+    console.log("Hello!");
+    callback();
+ }
+ function goodbye(){
+    console.log("Goodbye!");
+ }
