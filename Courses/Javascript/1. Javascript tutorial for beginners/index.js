@@ -69,8 +69,57 @@ const food1 = "pizza";
 
  function hello(callback){
     console.log("Hello!");
-    callback();
+    callback(wait);
  }
  function goodbye(){
     console.log("Goodbye!");
  }
+ let numbers = [1, 2, 3, 4, 5];
+ numbers.forEach(display);
+ numbers.forEach(double);
+ function double(element, index, array){
+    array[index] = elemnt * 2;
+ }
+ function display(elemment){
+    console.log(element);
+ }
+ const numbers = [1, 2, 3, 4, 5];
+ const squares = numbers.map(sqaure);
+ function square(element){
+    return Math.pow(element, 2)
+ }
+let numbers = [1, 2, 3, 4, 5, 6, 7,]
+let evenNums = numbers.filter(isEven);
+function isEven(element){
+    return element %2 === 0;
+}
+function hello(){
+    console.log( "Hello");
+}
+const hello = function(){
+    console.log("Hello");
+}
+setTimeout(function(){
+console.log("Hello");
+}
+const person = {
+    firstName: "Spongebob",
+    lastName: "Squarepants",
+    age: 30,
+    isEmployed: true,
+    sayHello: function(){console.log("Hi! Iam Spongebob!")},
+    sayBye: function(){console.log("Goodbye!")}
+};
+
+    const person2 = {
+        firstName: "Patrick",
+        lastName: "Star",
+        age: 42,
+        isEmployed: false,
+        sayHello: () => console.log("Hey, I'm Patrick"),
+        sayBye: function(){console.log("Bye...")}
+    };
+    function sayHello(){
+        window.alert("Hello");
+    }
+    setTimeout(sayHello, 3000);
