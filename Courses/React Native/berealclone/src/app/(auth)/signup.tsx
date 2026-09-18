@@ -13,9 +13,7 @@ export default function SignUpScreen(){
     const router=useRouter()
     const {signUp}=useAuth()
 
-    useEffect(()=>{
-        router.push("/(auth)/onboarding")
-    }, [])
+    
     const handleSignUp=async()=>{
         if(!email || !password){
             Alert.alert("Error" ,"please fill in all fields");
@@ -28,6 +26,7 @@ export default function SignUpScreen(){
         }
         setIsLoading(true);
         try{
+            router.push("/(auth)/onboarding")
             await signUp(email,password)
             }
         catch(error){

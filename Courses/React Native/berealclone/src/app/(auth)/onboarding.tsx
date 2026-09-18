@@ -8,11 +8,12 @@ import { supabase } from "@/lib/supabase/client";
 import { uploadProfileImage } from "@/lib/supabase/storage";
 
 export default function SignUpScreen(){
+  const router =useRouter();
     const [name, setName]=useState("");
     const [username, setUsername]=useState("");
     const[isLoading,setIsLoading]=useState(false);
     const [profileImage, setProfileImage]=useState<string | null>(null)
-    const {user}=useAuth()
+    const {user, updateUser}=useAuth()
     const handleComplete=async()=>{
       if(!name || !username){
             Alert.alert("Error" ,"please fill in all fields");
@@ -37,9 +38,10 @@ export default function SignUpScreen(){
             }
 
             //upload profile image
+            let profileImageUrl: string | undefined;
             if(profileImage){
               try {
-                await uploadProfileImage(user.id, profileImage)
+                profileImageUrl=await uploadProfileImage(user.id, profileImage)
               } catch(error){
                   console.error("Error uploading profile image:", error);
                   Alert.alert(
@@ -47,9 +49,15 @@ export default function SignUpScreen(){
                     "Failed to upload profile image. Continuing without image."
                   );
               }
-              
-            
             }
+            //update profile
+            await updateUser({
+              name,
+              username,
+              profileImage: profileImageUrl,
+              onboardingCompleted: true,
+            })
+            router.replace("/(tabs)")
           }
         catch(error){
             Alert. alert("error", "failed to complete the onboarding. please try again")
