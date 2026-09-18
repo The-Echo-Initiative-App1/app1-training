@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather Dashboard Pro</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div class="weather-card">
+        <!-- 1. Search Box Component -->
+        <div class="search-box">
+            <input type="text" id="city-input" placeholder="Enter city name..." autocomplete="off">
+            <button id="search-btn">Search 🔍</button>
+        </div>
+
+        <!-- 2. Main Conditions Readout -->
+        <div class="main-display">
+            <h1 id="city-name">San Francisco</h1>
+            <p id="temp-display" class="temp">68°F</p>
+            <p id="condition-display">Partly Cloudy</p>
+        </div>
+
+        <!-- 3. Extended Multi-Day Forecast (The NodeList) -->
+        <div class="forecast-container">
+            <div class="forecast-day" data-day="1">
+                <span class="day-title">Mon</span>
+                <span class="day-icon">☀️</span>
+                <span class="day-temp">72°F</span>
+            </div>
+            <div class="forecast-day" data-day="2">
+                <span class="day-title">Tue</span>
+                <span class="day-icon">🌧️</span>
+                <span class="day-temp">58°F</span>
+            </div>
+            <div class="forecast-day" data-day="3">
+                <span class="day-title">Wed</span>
+                <span class="day-icon">☁️</span>
+                <span class="day-temp">64°F</span>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>

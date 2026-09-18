@@ -123,3 +123,144 @@ const person = {
         window.alert("Hello");
     }
     setTimeout(sayHello, 3000);
+function func1(callback){
+
+
+setTimeout(() => console.log("Task 1"), 3000);
+}
+function fun2(){
+console.log("Task 2");
+console.log("Task 3");
+console.log("Task 4");
+}
+1. document.getElementById();
+2. document.getElementsByClassName();
+3. document.getElementsByTagName();
+4. document.querySelectorAll();
+
+.firstElementChild
+.lastElementChild
+.nextElementSibling
+.previousElementSibling
+.parentElement
+.children
+
+const box = document.getElementById('interactive-box');
+const log = document.getElementById('status-log');
+const coordsText = document.getElementById('coords');
+
+
+function updateLog(text) {
+    log.textContent = `Last Action: ${text}`;
+}
+
+// 1. Click Events
+box.addEventListener('click', () => {
+    updateLog('Left Click Detected! 🖱️');
+});
+
+box.addEventListener('dblclick', () => {
+    updateLog('Double Click Detected! ⚡');
+});
+
+box.addEventListener('contextmenu', (event) => {
+    event.preventDefault(); 
+    updateLog('Right Click Detected! 🛠️');
+});
+
+
+box.addEventListener('mousedown', () => {
+    box.style.transform = 'scale(0.95)'; 
+    updateLog('Mouse Button Pressed Down...');
+});
+
+box.addEventListener('mouseup', () => {
+    box.style.transform = 'scale(1)'; 
+    updateLog('Mouse Button Released!');
+});
+
+
+box.addEventListener('mouseenter', () => {
+    updateLog('Mouse Entered the Box Boundary');
+});
+
+box.addEventListener('mouseleave', () => {
+    coordsText.textContent = 'X: 0, Y: 0'; 
+    updateLog('Mouse Left the Box Boundary');
+});
+
+box.addEventListener('mousemove', (event) => {
+
+    const rect = box.getBoundingClientRect();
+    const x = Math.round(event.clientX - rect.left);
+    const y = Math.round(event.clientY - rect.top);
+    
+    coordsText.textContent = `X: ${x}, Y: ${y}`;
+});
+
+const keyDisplay = document.getElementById('key-display');
+const keyDetails = document.getElementById('key-details');
+
+const shiftBadge = document.getElementById('mod-shift');
+const ctrlBadge = document.getElementById('mod-ctrl');
+const altBadge = document.getElementById('mod-alt');
+
+
+window.addEventListener('keydown', (event) => {
+   
+    const keyName = event.key === ' ' ? 'Spacebar' : event.key;
+    
+  
+    keyDisplay.textContent = keyName;
+    keyDetails.innerHTML = `Key: ${event.key} | Code: ${event.code}`;
+    
+   
+    toggleModifiers(event);
+    
+    
+    if (event.ctrlKey && event.key === 's') {
+        event.preventDefault(); 
+        keyDisplay.textContent = "Saved! 💾";
+    }
+});
+
+
+window.addEventListener('keyup', (event) => {
+   
+    toggleModifiers(event);
+});
+
+
+function toggleModifiers(event) {
+    if (event.shiftKey) shiftBadge.classList.add('active');
+    else shiftBadge.classList.remove('active');
+
+    if (event.ctrlKey) ctrlBadge.classList.add('active');
+    else ctrlBadge.classList.remove('active');
+
+    if (event.altKey) altBadge.classList.add('active');
+    else altBadge.classList.remove('active');
+}
+
+const itemsList = document.querySelectorAll('.list-item');
+const toggleBtn = document.getElementById('action-btn');
+
+console.log(itemsList); 
+itemsList.forEach((item, index) => {
+    item.addEventListener('click', () => {
+    
+        item.classList.toggle('selected');
+        console.log(`Clicked item index position: ${index}`);
+    });
+});
+
+
+toggleBtn.addEventListener('click', () => {
+    itemsList.forEach((item) => {
+        item.classList.add('selected');
+    });
+});
+
+
+const itemsArray = Array.from(itemsList); 
+
